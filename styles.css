@@ -38,8 +38,10 @@ p {
   font-family: 'Indie Flower', cursive;
 }
 
-img {
+.img {
+  font-size: 200px;
   max-width: 200px;
+  color: #fff;
 }
 
 footer {
@@ -96,8 +98,8 @@ button:active {
 }
 
 .looser {
-  transform: scale(.8);
-  opacity: 0.6;
+  opacity: 0.5;
+    transform: scale(.9);
 }
 
 @media only screen and ( max-width: 600px ) {
