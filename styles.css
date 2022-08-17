@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Righteous&display=swap');
+
 .container {
   width: 90%;
   margin: auto;
@@ -24,31 +26,32 @@ body {
 }
 
 h1 {
-  font-family: 'Lobster', cursive;
+  font-family: 'Righteous', cursive;
   text-shadow: 5px 0 #232931;
   font-size: 5rem;
   max-height: 30px;
   padding-bottom: 30px;
-  color: #4ECCA3;
+  color: #00DDFF;
 }
 
 p {
   font-size: 2rem;
-  color: #4ECCA3;
-  font-family: 'Indie Flower', cursive;
+  color: #00DDFF;
+  font-family: 'Comfortaa', cursive;
 }
 
 .img {
   font-size: 200px;
   max-width: 200px;
-  color: #fff;
+  color: rgb(240, 240, 240);
+  text-shadow: 8px 8px 2px #232931;
 }
 
 footer {
   margin-top: 5%;
   color: #EEEEEE;
   text-align: center;
-  font-family: 'Indie Flower', cursive;
+  font-family: 'Comfortaa', cursive;
 }
 
 button {
@@ -59,7 +62,7 @@ button {
     border: none;
     width: auto;
     height: auto;
-    background: #4ECCA3;
+    background: #FF2200;
   font-size: 25px;
     color: white;
     text-align: center;
