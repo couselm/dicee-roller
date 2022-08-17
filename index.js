@@ -10,6 +10,7 @@ const diceClasses = [
   "fa-dice-six",
 ];
 var rollAnimationTime = 1;
+playerScore = [0, 0]
 
 // Dom Elements
 const heading = document.querySelector("H1");
@@ -18,6 +19,8 @@ const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
 const die1 = document.getElementById("die1");
 const die2 = document.getElementById("die2");
+const player1Score = document.getElementById("p1-score");
+const player2Score = document.getElementById("p2-score");
 
 // Sound Effects
 const beepSound = new Audio("./sounds/beep-07a.mp3");
@@ -51,11 +54,15 @@ function animateDice() {
 function displayWinner() {
   setTimeout(function () {
     if (diceValue[0] > diceValue[1]) {
+      playerScore[0]++;
       heading.textContent = "🚩 Player 1 Wins!";
+      player1Score.textContent = `Score: ${playerScore[0]}`;
       player1.classList.add("pulsate");
       player2.classList.add("looser");
     } else if (diceValue[0] < diceValue[1]) {
+      playerScore[1]++;
       heading.textContent = "Player 2 Wins! 🚩";
+      player2Score.textContent = `Score: ${playerScore[1]}`;
       player2.classList.add("pulsate");
       player1.classList.add("looser");
     } else {
@@ -86,4 +93,14 @@ function rollDice() {
   }, rollAnimationTime);
 }
 
+function quickRoll() {
+  player1.classList.remove("pulsate", "looser");
+  player2.classList.remove("pulsate", "looser");
+  heading.classList.remove("pulsate");
+  animateDice();
+  displayWinner();
+}
+
 rollButton.addEventListener("click", rollDice);
+die1.addEventListener("click", quickRoll);
+die2.addEventListener("click", quickRoll);

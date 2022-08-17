@@ -23,6 +23,7 @@
 
 body {
   background-color: #393E46;
+  font-family: 'Comfortaa', cursive;
 }
 
 h1 {
@@ -34,10 +35,14 @@ h1 {
   color: #00DDFF;
 }
 
+h3 {
+  font-style: italic;
+  color:rgb(240, 240, 240);
+}
+
 p {
   font-size: 2rem;
   color: #00DDFF;
-  font-family: 'Comfortaa', cursive;
 }
 
 .img {
