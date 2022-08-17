@@ -1,6 +1,9 @@
 // Global Vars
 var diceValue = [1, 2];
 var previousRoll = [1, 2];
+var playerScore = [0, 0];
+var rollAnimationTime = 1;
+let rolling;
 const diceClasses = [
   "fa-dice-one",
   "fa-dice-two",
@@ -9,9 +12,6 @@ const diceClasses = [
   "fa-dice-five",
   "fa-dice-six",
 ];
-var rollAnimationTime = 1;
-var playerScore = [0, 0];
-let rolling;
 
 // Dom Elements
 const heading = document.querySelector("H1");
@@ -88,10 +88,12 @@ function rollDice() {
       rollAnimationTime++;
       rollButton.disabled = true;
       rollDice();
-    } else if (rollAnimationTime < 680 && rolling ) {
+    } 
+    else if (rollAnimationTime < 680 && rolling ) {
       rollAnimationTime = rollAnimationTime * 1.2;
       rollDice();
-    } else if (rollAnimationTime > 680 && rolling) {
+    } 
+    else if (rollAnimationTime > 680 && rolling) {
       setTimeout(function () {
       displayWinner(); }, rollAnimationTime);
       rollAnimationTime = 1;

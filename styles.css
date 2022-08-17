@@ -6,33 +6,8 @@
   text-align: center;
 }
 
-.buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-.die {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding: 0 20px;
-}
-
-.dice {
-  display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-
-.dice:active {
-  transform: scale(90%);
-}
-
 body {
+  margin: 0;
   background-color: #393E46;
   font-family: 'Comfortaa', cursive;
 }
@@ -56,19 +31,64 @@ p {
   color: #00DDFF;
 }
 
+.score {
+  color: #FFF;
+}
+
+.die {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
 .img {
   font-size: 200px;
   max-width: 200px;
-  color: rgb(240, 240, 240);
+  color: rgb(243, 243, 243);
   text-shadow: 8px 8px 2px #232931;
+  -webkit-text-stroke: 7px #232931;
 }
 
-footer {
-  margin-top: 5%;
-  color: #EEEEEE;
-  text-align: center;
-  font-family: 'Comfortaa', cursive;
+.img:hover {
+  opacity: 0.8;
 }
+
+.dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.dice:active {
+  transform: scale(90%);
+}
+
+/* .fa-dice-one {
+  -webkit-text-stroke: 5px red;
+}
+
+.fa-dice-two {
+  -webkit-text-stroke: 5px green;
+}
+
+.fa-dice-three {
+  -webkit-text-stroke: 5px blue;
+}
+
+.fa-dice-four {
+  -webkit-text-stroke: 5px black;
+}
+
+.fa-dice-five {
+  -webkit-text-stroke: 5px orange;
+}
+
+.fa-dice-six {
+  -webkit-text-stroke: 5px purple;
+} */
 
 button {
   margin: 35px;
@@ -99,6 +119,13 @@ button:disabled {
   opacity: .5;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
 .pulsate {
   -webkit-animation: pulsate 1.5s ease-out;
   -webkit-animation-iteration-count: infinite;
@@ -122,7 +149,16 @@ button:disabled {
 
 .looser {
   opacity: 0.5;
-    transform: scale(.9);
+  transform: scale(.9);
+}
+
+footer {
+  border-top: #232931 1px solid;
+  padding: 50px;
+  margin-top: 5%;
+  color: #dbdbdb;
+  text-align: center;
+  font-family: 'Comfortaa', cursive;
 }
 
 @media only screen and ( max-width: 600px ) {
