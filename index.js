@@ -92,10 +92,10 @@ function rollDice() {
       rollAnimationTime = rollAnimationTime * 1.2;
       rollDice();
     } else if (rollAnimationTime > 680 && rolling) {
-      rolling = false;
       setTimeout(function () {
       displayWinner(); }, rollAnimationTime);
       rollAnimationTime = 1;
+      rolling = fasle;
     }
     else {
       rollAnimationTime = 1;
@@ -113,13 +113,12 @@ function quickRoll() {
   heading.classList.remove("pulsate");
   animateDice();
   setTimeout(function () {
-  displayWinner() }, rollAnimationTime);
+  displayWinner() }, rollAnimationTime );
 }
 
 
 
 function reset() {
-
 rolling = false;
 playerScore = [0, 0];
 player1.classList.remove("pulsate", "looser");
