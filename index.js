@@ -19,11 +19,11 @@ const rollButton = document.getElementById("roll-dice");
 const resetButton = document.getElementById("reset");
 const player1 = document.getElementById("player1");
 const player2 = document.getElementById("player2");
+const player1Score = document.getElementById("p1-score");
+const player2Score = document.getElementById("p2-score");
 const die1 = document.getElementById("die1");
 const die2 = document.getElementById("die2");
 const dice = document.getElementById("dice");
-const player1Score = document.getElementById("p1-score");
-const player2Score = document.getElementById("p2-score");
 
 // Sound Effects
 const beepSound = new Audio("./sounds/beep-07a.mp3");
@@ -43,7 +43,7 @@ function animateDice() {
       diceValue[i] = randomNum;
     }
   }
-  beepSound.play();
+  console.log(rollAnimationTime);
   die1.classList.replace(
     diceClasses[previousRoll[0] - 1],
     diceClasses[diceValue[0] - 1]
@@ -80,20 +80,20 @@ function rollDice() {
     setTimeout(function () {
     animateDice();
     if (rollAnimationTime === 1) {
-      player1.classList.remove("pulsate", "looser");
-      player2.classList.remove("pulsate", "looser");
-      heading.classList.remove("pulsate");
+      resetClasses();
       heading.textContent = "Rolling...";
       rolling = true;
       rollAnimationTime++;
       rollButton.disabled = true;
       rollDice();
     } 
-    else if (rollAnimationTime < 680 && rolling ) {
+    else if (rollAnimationTime < 470 && rolling ) {
       rollAnimationTime = rollAnimationTime * 1.2;
+      beepSound.play();
       rollDice();
     } 
-    else if (rollAnimationTime > 680 && rolling) {
+    else if (rollAnimationTime > 470 && rolling) {
+      beepSound.play();
       setTimeout(function () {
       displayWinner(); }, rollAnimationTime);
       rollAnimationTime = 1;
@@ -110,22 +110,16 @@ function rollDice() {
 function quickRoll() {
   rolling = false;
   victorySound.currentTime = 0;
-  player1.classList.remove("pulsate", "looser");
-  player2.classList.remove("pulsate", "looser");
-  heading.classList.remove("pulsate");
+  resetClasses();
   animateDice();
   setTimeout(function () {
   displayWinner() }, rollAnimationTime );
 }
 
-
-
-function reset() {
+function resetGame() {
 rolling = false;
 playerScore = [0, 0];
-player1.classList.remove("pulsate", "looser");
-player2.classList.remove("pulsate", "looser");
-heading.classList.remove("pulsate");
+resetClasses();
 heading.textContent = "Roll The Dice!";
 setTimeout(function () {
 die1.classList.replace(diceClasses[diceValue[0] - 1], diceClasses[0]);
@@ -136,6 +130,12 @@ diceValue = [1, 2];
 }, rollAnimationTime);
 }
 
+function resetClasses() {
+  player1.classList.remove("pulsate", "looser");
+  player2.classList.remove("pulsate", "looser");
+  heading.classList.remove("pulsate");
+}
+
 rollButton.addEventListener("click", rollDice);
-resetButton.addEventListener("click", reset);
+resetButton.addEventListener("click", resetGame);
 dice.addEventListener("click", quickRoll);
